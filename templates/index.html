@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Github Repo Ranking </title>
+</head>
+
+<body>
+<h1> Ranking Github Repo: Most Starred!</h1>
+
+<div id="repos" onclick=clicks()>
+</div>
+
+<!-- Builds the HTML list out of data  -->
+<script>
+  var data = JSON.parse('{{data|tojson|safe}}');
+  var listDiv = document.getElementById('repos');
+  var ul=document.createElement('ul');
+
+  for (var i = 0; i < data.length; ++i) {
+      var li=document.createElement('li');
+      li.innerHTML =  data[i].full_name; 
+      ul.appendChild(li);                                
+    }
+  listDiv.appendChild(ul);  
+
+</script>
+
+
+<!-- Builds the HTML Table out of data  -->
+<script>
+function clicks() {
+
+var keys = [];
+document.write("<table border==\"1\"><tr>");
+for (key in data[0]) {
+	document.write('<th>' + key + '</th>');
+}
+document.write("</tr>");
+
+for (var i = 0; i < data.length; i++) {
+	document.write('<tr>');
+	for (key in data[i]) {
+  	document.write('<td>' + data[i][key] + '</td>');
+  }
+	document.write('</tr>');
+}
+
+document.write("</table>");
+}
+</script>
+
+  </body>
+  </html>
