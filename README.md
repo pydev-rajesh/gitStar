@@ -26,7 +26,7 @@ pip install Flask
 
 MAINTAINER
 -----------
-Rajesh Shrestha
+R. Shresth
 
 
 
